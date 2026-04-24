@@ -1,1 +1,22 @@
-
+@model IReadOnlyList<TemplateItem>
+@{
+    ViewData["Title"] = "مكتبة النماذج";
+}
+<section class="page-head">
+    <h1>مكتبة النماذج الجاهزة</h1>
+    <p>نماذج وقوالب أولية يمكن تطويرها إلى ملفات قابلة للتحميل بعد إضافة التخزين وقاعدة البيانات.</p>
+</section>
+<section class="section">
+    <div class="grid cards">
+        @foreach (var template in Model)
+        {
+            <article class="card">
+                <small>@template.Type</small>
+                <h3>@template.Title</h3>
+                <p>@template.Description</p>
+                <span class="pill">@template.CitationStyle</span>
+                <button class="btn ghost" onclick="alert('سيتم ربط التحميل لاحقاً بملفات فعلية')">تحميل النموذج</button>
+            </article>
+        }
+    </div>
+</section>
