@@ -1,1 +1,22 @@
-
+@model IReadOnlyList<StudentOrder>
+@{
+    ViewData["Title"] = "تتبع الطلب";
+}
+<section class="page-head">
+    <h1>تتبع تقدم الطلبات</h1>
+    <p>واجهة زمنية توضح مراحل كل طلب من الاستلام حتى التسليم النهائي.</p>
+</section>
+<section class="timeline">
+@foreach (var order in Model)
+{
+    <article class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+            <h3>#@order.Id - @order.ServiceName</h3>
+            <p>@order.Specialty | المسؤول: @order.ExpertName</p>
+            <div class="progress"><span style="width:@order.Progress%"></span></div>
+            <strong>@order.Status - @order.Progress%</strong>
+        </div>
+    </article>
+}
+</section>
