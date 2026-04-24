@@ -1,1 +1,39 @@
-
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - أكاديميا برو</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" asp-controller="Home" asp-action="Index">أكاديميا برو</a>
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+        <nav id="mainMenu">
+            <a asp-controller="Home" asp-action="Index">الرئيسية</a>
+            <a asp-controller="Home" asp-action="Services">الخدمات</a>
+            <a asp-controller="Experts" asp-action="Index">الخبراء</a>
+            <a asp-controller="Student" asp-action="Dashboard">لوحة الطالب</a>
+            <a asp-controller="Orders" asp-action="Tracking">تتبع الطلب</a>
+            <a asp-controller="Library" asp-action="Index">مكتبة النماذج</a>
+            <a asp-controller="Forum" asp-action="Index">المجتمع</a>
+            <a class="cta-small" asp-controller="Home" asp-action="Contact">اطلب خدمة</a>
+        </nav>
+    </header>
+    <main>
+        @RenderBody()
+    </main>
+    <footer class="footer">
+        <div>
+            <strong>أكاديميا برو</strong>
+            <p>منصة دعم أكاديمي وبحثي ملتزمة بالنزاهة العلمية: إرشاد، تحرير، تحليل، وترجمة، وليست بديلاً عن جهد الباحث.</p>
+        </div>
+        <div>
+            <span>© @DateTime.Now.Year جميع الحقوق محفوظة</span>
+        </div>
+    </footer>
+    <script src="~/js/site.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
