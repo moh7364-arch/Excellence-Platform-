@@ -1,1 +1,23 @@
-
+@model IReadOnlyList<ForumPost>
+@{
+    ViewData["Title"] = "المجتمع الأكاديمي";
+}
+<section class="page-head dashboard-head">
+    <div>
+        <h1>المجتمع الأكاديمي</h1>
+        <p>منتدى للباحثين لطرح الأسئلة حول المنهجية، النشر، التحليل، والتوثيق.</p>
+    </div>
+    <button class="btn primary" onclick="alert('إضافة منشور تحتاج ربط قاعدة بيانات وتسجيل دخول')">منشور جديد</button>
+</section>
+<section class="forum-list">
+@foreach (var post in Model)
+{
+    <article class="forum-post">
+        <div>
+            <h3>@post.Title</h3>
+            <p>@post.Category | بواسطة @post.Author | @post.CreatedAt.ToString("yyyy/MM/dd")</p>
+        </div>
+        <span>@post.Replies رد</span>
+    </article>
+}
+</section>
