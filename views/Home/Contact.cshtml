@@ -1,0 +1,18 @@
+@{
+    ViewData["Title"] = "طلب خدمة";
+}
+<section class="page-head">
+    <h1>طلب خدمة أكاديمية</h1>
+    <p>هذا نموذج واجهة أولي. عند ربط قاعدة بيانات يمكن حفظ الطلب وإرساله إلى لوحة الإدارة.</p>
+</section>
+<section class="form-wrap">
+    <form class="form-card" onsubmit="showRequestMessage(event)">
+        <label>الاسم الكامل<input required placeholder="اكتب اسمك" /></label>
+        <label>البريد الإلكتروني<input type="email" required placeholder="name@example.com" /></label>
+        <label>نوع الخدمة<select required><option>خطة بحث</option><option>تحرير مقال علمي</option><option>اختيار مجلة</option><option>تحليل إحصائي</option><option>ترجمة أكاديمية</option></select></label>
+        <label>التخصص<input required placeholder="مثال: القانون التجاري" /></label>
+        <label>تفاصيل الطلب<textarea rows="5" placeholder="اشرح المطلوب والموعد النهائي"></textarea></label>
+        <button class="btn primary" type="submit">إرسال الطلب</button>
+        <p id="requestMessage" class="success-msg"></p>
+    </form>
+</section>

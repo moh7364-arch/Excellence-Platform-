@@ -1,1 +1,64 @@
+@model DemoRepository
+@{
+    ViewData["Title"] = "الرئيسية";
+}
+<section class="hero">
+    <div class="hero-text">
+        <span class="badge">منصة أكاديمية شاملة</span>
+        <h1>دعم بحثي احترافي لطلاب الماجستير والدكتوراه والباحثين</h1>
+        <p>خدمات منهجية، تحرير أكاديمي، اختيار مجلات، تنسيق قوالب، تحليل إحصائي، ترجمة، ومتابعة نشر وفق ضوابط النزاهة العلمية.</p>
+        <div class="hero-actions">
+            <a class="btn primary" asp-controller="Home" asp-action="Contact">ابدأ طلبك الآن</a>
+            <a class="btn ghost" asp-controller="Student" asp-action="Dashboard">مشاهدة لوحة الطالب</a>
+        </div>
+    </div>
+    <div class="hero-card">
+        <h3>تتبع ذكي للطلب</h3>
+        <div class="progress"><span style="width:75%"></span></div>
+        <p>مراجعة علمية → تدقيق → تسليم أولي → تعديلات → تسليم نهائي</p>
+    </div>
+</section>
 
+<section class="section">
+    <div class="section-title">
+        <h2>الخدمات الأساسية</h2>
+        <p>مقسمة حسب رحلة الطالب من الفكرة إلى النشر.</p>
+    </div>
+    <div class="grid cards">
+        @foreach (var service in Model.Services)
+        {
+            <article class="card">
+                <span class="icon">@service.Icon</span>
+                <small>@service.Category</small>
+                <h3>@service.Title</h3>
+                <p>@service.Description</p>
+            </article>
+        }
+    </div>
+</section>
+
+<section class="section alt">
+    <div class="section-title">
+        <h2>التخصصات المشمولة</h2>
+        <p>تغطية واسعة مع توزيع الطلبات على خبراء بحسب المجال.</p>
+    </div>
+    <div class="chips">
+        @foreach (var item in Model.Specialties)
+        {
+            <span>@item</span>
+        }
+    </div>
+</section>
+
+<section class="section two-cols">
+    <div>
+        <h2>نظام تقييم الخبراء</h2>
+        <p>كل خبير لديه تقييم، عدد مراجعات، وعدد مشاريع مكتملة. يمكن تطويره لاحقاً ليشمل مراجعات الطلاب، مؤشرات الالتزام، وجودة التسليم.</p>
+        <a class="btn primary" asp-controller="Experts" asp-action="Index">استعراض الخبراء</a>
+    </div>
+    <div class="stats">
+        <div><strong>4.8/5</strong><span>متوسط التقييم</span></div>
+        <div><strong>700+</strong><span>مشروع تجريبي مكتمل</span></div>
+        <div><strong>35+</strong><span>تخصص وفرع</span></div>
+    </div>
+</section>

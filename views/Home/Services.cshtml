@@ -1,0 +1,25 @@
+@model DemoRepository
+@{
+    ViewData["Title"] = "الخدمات";
+}
+<section class="page-head">
+    <h1>الخدمات الأكاديمية</h1>
+    <p>خدمات مصممة لتوجيه الطالب والباحث لاختصار الوقت وتحسين الجودة دون مخالفة النزاهة الأكاديمية.</p>
+</section>
+<section class="section">
+    <div class="grid cards">
+        @foreach (var service in Model.Services)
+        {
+            <article class="card detailed">
+                <span class="icon">@service.Icon</span>
+                <h3>@service.Title</h3>
+                <p>@service.Description</p>
+                <ul>
+                    <li>تقييم أولي مجاني للمتطلبات</li>
+                    <li>خطة تنفيذ واضحة ومراحل تسليم</li>
+                    <li>مراجعة جودة قبل التسليم النهائي</li>
+                </ul>
+            </article>
+        }
+    </div>
+</section>
