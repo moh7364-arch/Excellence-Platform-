@@ -1,1 +1,27 @@
-
+@model IReadOnlyList<Expert>
+@{
+    ViewData["Title"] = "الخبراء";
+}
+<section class="page-head">
+    <h1>نظام تقييم الخبراء</h1>
+    <p>عرض الخبراء حسب التخصص والتقييم وعدد المشاريع. هذه البيانات تجريبية وقابلة للربط بقاعدة بيانات لاحقاً.</p>
+</section>
+<section class="section">
+    <div class="grid cards">
+        @foreach (var expert in Model)
+        {
+            <article class="card expert">
+                <div class="avatar">@expert.FullName.Substring(0,1)</div>
+                <h3>@expert.FullName</h3>
+                <small>@expert.Title</small>
+                <p>@expert.Bio</p>
+                <div class="rating">★★★★★ <strong>@expert.Rating</strong></div>
+                <div class="expert-meta">
+                    <span>@expert.Specialty</span>
+                    <span>@expert.ReviewsCount مراجعة</span>
+                    <span>@expert.CompletedProjects مشروع</span>
+                </div>
+            </article>
+        }
+    </div>
+</section>
